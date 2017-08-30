@@ -305,11 +305,11 @@ this.cfgs = {
 
 ### PNG спрайты
 
-Чтобы собрать png спрайт для страницы новостей, нужно зайти в `templates\sprites\png\`, создать папку `news` и положить в нее необходимые картинки. Сборщик соберет их в спрайт согласно названию папки - `news.png`, - и положит в `templates\images\png-sprites\`.
+Чтобы собрать PNG спрайт для страницы новостей, нужно зайти в `templates\sprites\png\`, создать папку `news` и положить в нее необходимые картинки. Сборщик соберет их в спрайт согласно названию папки - `news.png`, - и положит в `templates\images\png-sprites\`.
 
 Также сборщик соберет `news.less` со всеми необходимыми миксинами и положит их в папку `templates\src\less\core\png-sprites`.
 
-Чтобы быстро подключить иконку из спрайта, нужно добавить миксин `.bg-png(@png-ИМЯ_КАРТИНКИ)`. Например, вы хотите подключить картинку `favorite.png` (которую предварительно положили в `templates\sprites\png\news\`). Для этого нужно написать `.bg-png(@png-favorite)`.
+Чтобы быстро подключить в LESS иконку из спрайта, нужно добавить миксин `.bg-png(@png-ИМЯ_КАРТИНКИ)`. Например, вы хотите подключить картинку `favorite.png` (которую предварительно положили в `templates\sprites\png\news\`). Для этого нужно написать `.bg-png(@png-favorite)`.
 
 Итоговый пример:
 ```less
@@ -322,21 +322,21 @@ this.cfgs = {
 
 ### SVG спрайты
 
-Чтобы собрать svg спрайт, нужно зайти в `templates\sprites\svg\` и положить в нее необходимые svg картинки (обратите внимание: никаких дополнительных папок создавать не нужно). Сборщик настроен на сборку svg спрайтов в двух режимах одновременно: режиме CSS и режиме symbol. На выходе получатся 2 соответствующих спрайта: `sprite.svg` и `symbols.svg`. Сборщик положит их в `templates\images\`.
+Чтобы собрать SVG спрайт, нужно зайти в `templates\sprites\svg\` и положить в нее необходимые svg картинки (обратите внимание: никаких дополнительных папок создавать не нужно). Сборщик настроен на сборку SVG спрайтов в двух режимах одновременно: режиме CSS и режиме symbol. На выходе получатся 2 соответствующих спрайта: `sprite.svg` и `symbols.svg`. Сборщик положит их в `templates\images\`.
 
 Эти два режима отличаются от остальных (инлайн в HTML, инлайн в CSS, base64, SVG-stack) почти 100%-й поддержкой во всех современных браузерах (начиная с IE9 включительно), кешируемостью, быстродействием и удобством работы. Подробнее об этом можно почитать, например, [тут](https://habrahabr.ru/post/276463/).
 
 Подключение иконки из `sprite.svg` аналогично подключению png спрайта за рядом исключений:
 - спрайт кладется в папку `templates\sprites\svg\`;
 - миксины кладутся в `templates\src\less\core\svg-sprite.less`;
-- подключается миксином `.bg-svg(@svg-ИМЯ_КАРТИНКИ)`;
+- иконка в LESS подключается миксином `.bg-svg(@svg-ИМЯ_КАРТИНКИ)`;
 - остальные варианты подключения смотри в `templates\src\less\core\svg-sprite.less`.
 
 Чтобы подключить иконку из `symbols.svg` нужно в разметку добавить следующую конструкцию: 
 
 ```html
 <svg>
-  <use xlink:href="<?= "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>templates/images/symbols.svg#ИМЯ_КАРТИНКИ"></use>
+  <use xlink:href="http://<?=$_SERVER['HTTP_HOST'] . WWW_PATH?>templates/images/symbols.svg#ИМЯ_КАРТИНКИ"></use>
 </svg>
 ```
 
@@ -344,11 +344,11 @@ this.cfgs = {
 
 ```html
 <svg>
-  <use xlink:href="<?= "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>templates/images/symbols.svg#favorite"></use>
+  <use xlink:href="http://<?=$_SERVER['HTTP_HOST'] . WWW_PATH?>templates/images/symbols.svg#favorite"></use>
 </svg>
+```
 
 Если по какой-то причине вы не видите изменений в итоговых спрайтах, попробуйте удалить их (не исходники, а сами спрайты) и заново запустить сборку.
-```
 
 ## Сборка проекта
 
@@ -395,4 +395,6 @@ templates
 - Чтобы подключить стили к странице новостей, нужно в `templates\src\less\modules` создать файл `news.less`. Затем подключить этот файл в точке входа `templates\src\less\styles.less`.
 - Чтобы подключить скрипты к странице новостей, нужно в `templates\src\js\BView` создать вьюху `News.js`. Затем на странице `news.php` добавить в корневой элемент `data-view="News"`.
 - Чтобы подключить резину на ремах, нужно настроить объект `cfgs` в `templates\src\js\components\Adaptive.js`.
+- Чтобы собрать PNG спрайт для страницы новостей, нужно в `templates\sprites\png\` создать папку `news` и положить в нее картинки. Чтобы подключить в LESS картинку `favorite.png`, нужно добавить миксин `.bg-png(@png-favorite)`.
+- Чтобы собрать SVG спрайт, нужно в `templates\sprites\svg\` положить SVG картинки. Чтобы подключить в LESS картинку `favorite.svg`, нужно добавить миксин `.bg-svg(@svg-favorite)`. Чтобы подключить в HTML картинку `favorite.svg` нужно написать: `<svg><use xlink:href="http://<?=$_SERVER['HTTP_HOST'] . WWW_PATH?>templates/images/symbols.svg#favorite"></use></svg>`
 - Перед началом разработки нужно запустить команду `gulp`, а перед релизом `gulp release`.
