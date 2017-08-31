@@ -37,7 +37,7 @@
 
 ```php
 <svg>
-  <use xlink:href="<?=SITE_URL?>templates/images/symbols.svg#ИМЯ_КАРТИНКИ"></use>
+  <use xlink:href="<?=SITE_URL?>templates/images/symbols.svg#<ИМЯ_КАРТИНКИ>"></use>
 </svg>
 ```
 
