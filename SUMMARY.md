@@ -2,8 +2,8 @@
 
 * [Содержание](README.md)
 * [Введение](intro.md)
-* [Разворачивание проекта](deployment.md)
 * [Типовая структура проекта](structure.md)
+* [Разворачивание проекта](deployment.md)
 * [Сборка проекта](build.md)
 * [Настройка резины на rem](adaptive.md)
 * [HTML верстка](html.md)
