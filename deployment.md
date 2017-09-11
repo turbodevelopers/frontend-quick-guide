@@ -1,4 +1,4 @@
-## Разворачивание проекта
+# Разворачивание проекта
 
 1. Скачать репозиторий [libs](http://hg.turbodevelopers.com/turbo/libs)
 1. Перейти в крайнюю ревизию ветки `configurable-build`
