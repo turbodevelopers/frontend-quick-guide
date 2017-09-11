@@ -20,13 +20,18 @@ Page1.js - демонстрационная вьюха
 
 Таким образом, если вы создали страницу `news.php`, то для нее необходимо создать вьюху `News.js`, а в `news.php` прописать `data-view="News"`.
 
+**PHP**
 ```php
-// Clean HTML
-<div class="news" data-view="News"> ... </div>
-
-// Тоже самое на PHP
 <? define('PAGE_JS_VIEW','News'); ?>
 <div class="news" data-view="<?=PAGE_JS_VIEW?>"> ... </div>
+```
+
+**Jade** (см. [Верстка на Jade](jade.md))
+
+```jade
++module(MODULE.DEFINE_VIEW, {view: 'News'})
+block content
+    .news(data-view!='<?=PAGE_JS_VIEW?>')
 ```
 
 ## Структура View

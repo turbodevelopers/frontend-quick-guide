@@ -90,7 +90,7 @@ include ../modules/_modules
 +module(MODULE.DEFINE_VIEW, {title: 'Главная страница', id: 0, view: 'Index'})
 
 block content
-    .home(data-view!='<?=PAGE_JS_VIEW?>')
+    .page.page--index(data-view!='<?=PAGE_JS_VIEW?>')
     //- ...
 ```
 
