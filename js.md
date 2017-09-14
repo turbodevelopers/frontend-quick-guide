@@ -1,5 +1,17 @@
 # Скрипты
 
+Все скрипты лежат в `templates/src/js/`.
+
+```
+js/                     # Скрипты
+    ├── BView/          # Backbone Views ("вьюхи" / представления страниц сайта)
+        └── subView/    # Модули, которые могут использоваться в нескольких вьюхах
+    ├── components/     # Базовые компоненты для работы сайта
+    ├── core/           # Базовые классы, от которых расширяются вьюхи
+    ├── libs/           # Сторонние библиотеки
+    └── script.js       # Точка входа для скриптов (инициализация приложения)
+```
+
 Для организации кода и реализации SPA в проекте используется фреймворк Backbone. Однако совсем не обязательно знать Backbone от и до для того, чтобы начать писать свой js код.
 
 Backbone - MVP фреймворк \([Model-View-Presenter](https://ru.wikipedia.org/wiki/Model-View-Presenter)\), но, как правило, в большинстве проектов не используется Model, а стало быть и Presenter. Работа идет только с [View](http://backbonejs.org/#View). 
@@ -40,17 +52,21 @@ block content
 ```js
 app.ns('app.views').News = app.core.Page.extend({
 
-    events: {},                                                       // Обработчики событий
-
-    initialize: function() {                                          // Инициализация вьюхи
+    // Обработчики событий
+    events: {},
+    
+    // Инициализация вьюхи (когда пришли на страницу)
+    initialize: function() {
         app.views.News.__super__.initialize.apply(this, arguments); 
     },
 
-    remove: function() {                                              // Удаление вьюхи и обработчиков
+    // Удаление вьюхи и обработчиков (когда ушли со страницы)
+    remove: function() {
         app.views.News.__super__.remove.apply(this, arguments); 
     },
 
-    render: function() {                                              // Отрисовка разметки
+    // Отрисовка в DOM
+    render: function() {
         app.views.News.__super__.render.apply(this, arguments);
         app.views.News.__super__.afterRender.apply(this, arguments);
     }
