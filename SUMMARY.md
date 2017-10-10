@@ -11,4 +11,5 @@
 * [Стили](css.md)
 * [Скрипты](js.md)
 * [Спрайты](sprites.md)
-* [Итого](total.md)
+* [TL;DR](tldr.md)
+
