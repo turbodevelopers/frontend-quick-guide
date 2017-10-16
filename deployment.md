@@ -19,7 +19,7 @@
     "gulp-less": "^3.3.0",                                     # LESS
     "gulp-sass": "^3.1.0",                                     # Sass
     "gulp-stylus": "^2.6.0",                                   # Stylus
-    "done_message": "file:gulp\\modules\\done_message",        # 
+    "done_message": "file:gulp\\modules\\done_message",        # Пакеты для Done message
     "jade-templates": "file:gulp\\modules\\jade-templates",    # Пакеты для сборки Jade
     "png-sprite": "file:gulp\\modules\\png-sprite",            # Пакеты для сборки PNG спрайтов
     "svg-sprite": "file:gulp\\modules\\svg-sprite"             # Пакеты для сборки SVG спрайтов
