@@ -1,6 +1,6 @@
 # Настройка резины на rem
 
-Управление резиной осуществляется в `templates/src/js/components/Adaptive.js`. В большинстве случаев достаточно лишь правильно указать базовые опции в объекте `cfgs`. Для определения устройства используется библиотека [Device.js](http://matthewhudson.me/projects/device.js/).
+Управление резиной осуществляется в `templates/src/js/components/Adaptive.js`. В большинстве случаев достаточно лишь правильно указать базовые опции в объекте `cfgs`. Для определения устройства используется библиотека [Device.js](https://github.com/matthewhudson/current-device).
 
 ## Описание опций
 
