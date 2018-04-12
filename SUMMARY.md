@@ -12,4 +12,5 @@
 * [Скрипты](js.md)
 * [Спрайты](sprites.md)
 * [TL;DR](tldr.md)
+* [Parallax. Параллакс.](parallax-parallaks.md)
 
