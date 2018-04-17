@@ -40,23 +40,23 @@
 * миксины кладутся в `templates/src/less/sprites/svg-sprite.less`;
 * иконка в Less подключается миксином `.bg-svg(@svg-<ИМЯ_КАРТИНКИ>)` (остальные варианты см. в генерируемом `svg-sprite.less`).
 
-Для подключения иконки из `symbols.svg` предусмотрен специальный PHP компонент, который упрощает подключение.
+Для подключения иконки из `symbols.svg` предусмотрена специальная PHP функция, которая упрощает подключение.
 
 ```php
-<? component('svg.tpl',['id'=>'<ИМЯ_КАРТИНКИ>']); ?>
+<? tpl('components/svg.tpl.php', ['id' => '<ИМЯ_КАРТИНКИ>']); ?>
 ```
 
 Например, вы хотите подключить картинку `favorite.svg` \(которую предварительно положили в `templates/src/sprites/svg/`\). Для этого нужно написать:
 
 ```php
-<? component('svg.tpl',['id'=>'favorite']); ?>
+<? tpl('components/svg.tpl.php', ['id' => 'favorite']); ?>
 ```
 
 Аналогичный модуль доступен в Jade (см. [Верстка на Jade](jade.md)).
 
 ```jade
 include ../modules/_modules
-+module(MODULE.SVG,{id:'favorite'})
++module(MODULE.SVG, {id: 'favorite'})
 ```
 
 Дополнительно для `symbols.svg` генерируется демо-страница `templates/src/images/symbols-demo.html` со всеми SVG иконками проекта. По ней очень удобно сверять, какие иконки уже есть в проекте во избежание дублирования.

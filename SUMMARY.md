@@ -11,6 +11,7 @@
 * [Стили](css.md)
 * [Скрипты](js.md)
 * [Спрайты](sprites.md)
+* [Перенос сборки на наш CMS движок](cms-engine.md)
 * [TL;DR](tldr.md)
 * [Parallax. Параллакс.](parallax-parallaks.md)
 
