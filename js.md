@@ -57,17 +57,17 @@ app.ns('app.views').News = app.core.Page.extend({
   events: {},
 
   // Инициализация вьюхи (когда пришли на страницу)
-  initialize: function () {
+  initialize () {
     app.views.News.__super__.initialize.apply(this, arguments); 
   },
 
   // Удаление вьюхи и обработчиков (когда ушли со страницы)
-  remove: function () {
+  remove () {
     app.views.News.__super__.remove.apply(this, arguments); 
   },
 
   // Отрисовка в DOM
-  render: function () {
+  render () {
     app.views.News.__super__.render.apply(this, arguments);
     app.views.News.__super__.afterRender.apply(this, arguments);
   }
@@ -76,7 +76,19 @@ app.ns('app.views').News = app.core.Page.extend({
 
 ## Работа с View
 
-Свой код нужно писать в методе `render()`.
+Свой код нужно писать в методе `render()`. Если кода получается больше, чем на 10 строк, его следует выносить в отдельные методы.
+
+```js
+app.ns('app.views').News = app.core.Page.extend({
+  render () {
+    this.method1()
+    this.method2()
+  },
+  method1 () {...},
+  method2 () {...}
+})
+
+```
 
 Обработчики событий нужно вешать декларативно в объекте `events` \(это стандартное [делегирование событий в Backbone](http://backbonejs.org/#View-delegateEvents)\). События записываются в следующем формате `{"событие селектор": "обработчик"}`. Например:
 
